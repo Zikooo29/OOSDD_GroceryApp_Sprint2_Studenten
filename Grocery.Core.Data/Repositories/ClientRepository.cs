@@ -23,7 +23,7 @@ namespace Grocery.Core.Data.Repositories
         {
             foreach (var client in clientList)
             {
-                if (client._emailAddress == email)
+                if (client.EmailAddress == email)
                 {
                     return client;
                 }
