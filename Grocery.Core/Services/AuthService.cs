@@ -20,7 +20,7 @@ namespace Grocery.Core.Services
             Client? client = _clientService.Get(email);
             if (client != null)
             {
-                bool verified = PasswordHelper.VerifyPassword(password, client._password);
+                bool verified = PasswordHelper.VerifyPassword(password, client.Password);
                 if (verified)
                 {
                     return client;
