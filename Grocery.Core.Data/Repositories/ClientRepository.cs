@@ -1,6 +1,7 @@
 ﻿
 using Grocery.Core.Interfaces.Repositories;
 using Grocery.Core.Models;
+using System.Net.Mail;
 
 namespace Grocery.Core.Data.Repositories
 {
@@ -17,19 +18,37 @@ namespace Grocery.Core.Data.Repositories
             ];
         }
 
+        //Instead of returning the same client in the list [0], it returns now the right information of client from the right email adress
         public Client? Get(string email)
         {
-            return clientList[0];
+            foreach (var client in clientList)
+            {
+                if (client._emailAddress == email)
+                {
+                    return client;
+                }
+            }
+            return null;
         }
 
         public Client? Get(int id)
         {
-            return clientList[0];
+            foreach (var client in clientList)
+            {
+                if (client.Id == id)
+                {
+                    return client;
+                }
+            }
+            return null;
         }
 
         public List<Client> GetAll()
         {
-            return clientList;
+
+                return clientList;
+
         }
+
     }
 }
