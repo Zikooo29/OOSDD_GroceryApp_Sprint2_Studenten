@@ -66,6 +66,7 @@ namespace Grocery.App.ViewModels
         {
             //Controleer of het product bestaat en dat de Id > 0
             if (product == null || product.Id <= 0) return;
+
             //Maak een GroceryListItem met Id 0 en vul de juiste productid en grocerylistid
             var groceryListItem = new GroceryListItem(0, GroceryList.Id, product.Id, 1);
 
